@@ -8,6 +8,9 @@ import openpyxl
 def top():
     return render_template("top.html")
 
+def syosai():
+    return render_template("syosai.html")
+
 def json(data):
     if data == "user":
         j = j_user()

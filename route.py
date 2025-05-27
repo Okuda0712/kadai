@@ -7,6 +7,10 @@ def create_route(app):
     def index():
         return controller.top()
     
+    @app.route("/syosai")
+    def index():
+        return controller.syosai()
+    
     @app.route("/json", methods=["GET","POST"])
     def json():
         if "data" in request.args:
