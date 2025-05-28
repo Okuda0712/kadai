@@ -8,8 +8,8 @@ import openpyxl
 def top():
     return render_template("top.html")
 
-def syosai():
-    return render_template("syosai.html")
+def sinsei():
+    return render_template("sinsei.html")
 
 def json(data):
     if data == "user":

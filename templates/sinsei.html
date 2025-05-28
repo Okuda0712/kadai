@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="bg-info py-5" style="min-height: 100vh;">
+<div class="container">
+    <div class="row">
+        <div class="col p-5 text-white rounded mt-3 bg-success">
+            <h1 class="display-4 fst-italic">拾得物管理システム</h1>
+            <hr>
+            <p>このシステムは文教大学湘南キャンパスの施設内における拾得物を管理するためのシステムです．プロジェクト演習BCの授業において学習用の演習システムとして開発を行います．</p>
+        </div>
+    </div>
+<div class="container p-4 rounded mt-4" style="background-color: #f1f1f1; width: 450px;">
+    <form>
+      <div class="mb-3 d-flex">
+       <label class="form-label me-2" style="width: 80px;">名称：</label>
+       <input type="text" class="form-control" style="width: 300px; height: 40px;">
+      </div>
+     <div class="mb-3 d-flex">
+      <label class="form-label me-2" style="width: 80px;">遺失時間：</label>
+      <input type="text" class="form-control" style="width: 300px; height: 40px;">
+     </div>
+     <div class="mb-3 d-flex">
+      <label class="form-label me-2" style="width: 80px;">遺失場所：</label>
+      <input type="text" class="form-control" style="width: 300px; height: 40px;">
+     </div>
+     <div class="mb-3 d-flex">
+      <label class="form-label me-2" style="width: 80px;">特徴：</label>
+      <input type="text" class="form-control" style="width: 300px; height: 40px;">
+     </div>
+    </form>
+</div>
+</div>
+</main>
+{% endblock %}
