@@ -11,6 +11,9 @@ def top():
 def sinsei():
     return render_template("sinsei.html")
 
+def toukou():
+    return render_template("toukou.html")
+
 def json(data):
     if data == "user":
         j = j_user()
