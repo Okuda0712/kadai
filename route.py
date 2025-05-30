@@ -10,6 +10,10 @@ def create_route(app):
     @app.route("/sinsei")
     def index1():
         return controller.sinsei()
+
+    @app.route("/toukou")
+    def index1():
+        return controller.toukou()
     
     @app.route("/json", methods=["GET","POST"])
     def json():
