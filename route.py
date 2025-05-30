@@ -12,7 +12,7 @@ def create_route(app):
         return controller.sinsei()
 
     @app.route("/toukou")
-    def index1():
+    def index2():
         return controller.toukou()
     
     @app.route("/json", methods=["GET","POST"])
