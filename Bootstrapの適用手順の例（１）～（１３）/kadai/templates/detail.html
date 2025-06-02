@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}拾得物詳細情報 - 拾得物管理システム{% endblock %}
+
+{% block content %}
+<main class="bg-light py-5" style="min-height: 100vh;">
+    <div class="container">
+        {# ページ説明セクション #}
+        <div class="row">
+            <div class="col p-5 text-white rounded mt-3 bg-success">
+                <h1 class="display-4 fst-italic">拾得物詳細情報</h1>
+                <hr>
+                <p>この画面では拾得物の詳細情報を確認できます。</p>
+            </div>
+        </div>
+
+        {# ホームへ戻るボタン #}
+        <div class="mt-4">
+            <a href="/" style="text-decoration: none;">
+                <i class="bi bi-arrow-left-circle-fill" style="font-size: 48px; color: #0d6efd;"></i>
+            </a>
+        </div>
+
+        {# 拾得物詳細表示カード #}
+        <div class="card p-4 rounded mt-4" style="background-color: #ffffff; max-width: 600px; margin: 0 auto;">
+            <h3 class="mb-4 text-center">詳細情報</h3>
+            <div class="card-body text-center">
+                {# 画像表示 #}
+                {% if item.image_url %}
+                <img src="{{ item.image_url }}" class="img-fluid mb-3" alt="拾得物の画像" style="max-height: 300px; object-fit: contain;">
+                {% else %}
+                <p class="text-muted">画像はありません</p>
+                {% endif %}
+                {# 落とし物名称 #}
+                <h5 class="card-title mt-3">{{ item.name }}</h5>
+                {# 拾得場所・現在地 #}
+                <p class="card-text">
+                    <strong>拾得場所:</strong> {{ item.found_location }}<br>
+                    <strong>現在地:</strong> {{ item.current_location }}
+                </p>
+                {# 編集ボタン #}
+                {# <a href="#" class="btn btn-primary mt-3">編集</a> #}
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

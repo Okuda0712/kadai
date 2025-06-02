@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}拾得物一覧 - 拾得物管理システム{% endblock %}
+
+{% block content %}
+<main class="bg-light py-5" style="min-height: 100vh;">
+    <div class="container">
+        {# ページ説明セクション #}
+        <div class="row mb-4">
+            <div class="col p-5 text-white rounded bg-success">
+                <h1 class="display-4 fst-italic">拾得物一覧</h1>
+                <hr>
+                <p>この画面では現在登録されている拾得物の一覧を確認できます。</p>
+            </div>
+        </div>
+
+        {# 落とし物検索見出し #}
+        <h2 class="mb-4 text-center">落とし物検索</h2>
+
+        {# 検索窓 #}
+        <div class="row mb-4 justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <form class="d-flex" role="search" action="/search" method="GET">
+                    <div class="input-group">
+                        <span class="input-group-text" id="search-addon"><i class="bi bi-search"></i></span>
+                        <input class="form-control me-2" type="search" placeholder="落とし物を検索..." aria-label="Search" name="query">
+                    </div>
+                    <button class="btn btn-outline-success" type="submit">検索</button>
+                </form>
+            </div>
+        </div>
+
+        {# 登録されている拾得物見出し #}
+        <h2 class="mb-4 text-center">登録されている拾得物</h2>
+
+        {# 落とし物カード一覧 #}
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {# 落とし物データループ #}
+            {% for item in lost_items %}
+            <div class="col">
+                <div class="card h-100 shadow-sm d-flex flex-column">
+                    {# 画像表示 #}
+                    {% if item.image_url %}
+                    <img src="{{ item.image_url }}" class="card-img-top" alt="{{ item.name }}" style="height: 200px; object-fit: cover;">
+                    {% else %}
+                    <div class="d-flex justify-content-center align-items-center bg-light" style="height: 200px;">
+                        <i class="bi bi-image" style="font-size: 3rem; color: #ccc;"></i>
+                    </div>
+                    {% endif %}
+                    {# カードボディ #}
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        <p class="card-text text-muted mb-auto">拾得場所: {{ item.found_location }}</p>
+                        {# 詳細ボタン #}
+                        <div class="text-center mt-3">
+                            <a href="/detail/{{ item.id }}" class="btn btn-primary">詳細</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {# 例1 #}
+            <div class="col">
+                <div class="card h-100 shadow-sm d-flex flex-column">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiY11IQlEnzbQCDXahGAwXfvf1TlxyqGPhXZ22FZOGTA80qBtl2tmOj4eZfV8ffdT3jxJogA6hOsJZXeDxCBNPXtpPn5ikqEFY9mbyLztviM4bs26Aj8NRYPKLJUSN8wYq_45eryuuvbFEv/s1600/rain_kasa_black.png" class="card-img-top" alt="文教大学湘南キャンパス" style="height: 200px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">傘</h5>
+                        <p class="card-text text-muted mb-auto">拾得場所: 4401教室</p>
+                        <div class="text-center mt-3">
+                            <a href="/detail" class="btn btn-primary">詳細</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {# 例2 #}
+            <div class="col">
+                <div class="card h-100 shadow-sm d-flex flex-column">
+                    <div class="d-flex justify-content-center align-items-center bg-light" style="height: 200px;">
+                        <i class="bi bi-image" style="font-size: 3rem; color: #ccc;"></i>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">メガネ</h5>
+                        <p class="card-text text-muted mb-auto">拾得場所: 食堂</p>
+                        <div class="text-center mt-3">
+                            <a href="/detail" class="btn btn-primary">詳細</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
