@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+<div class="container">
+    <div class="row">
+        <div class="col p-5 text-white rounded mt-3 bg-success">
+            <h1 class="display-4 fst-italic">拾得物管理システム</h1>
+            <hr>
+            <p>このシステムは文教大学湘南キャンパスの施設内における拾得物を管理するためのシステムです．プロジェクト演習BCの授業において学習用の演習システムとして開発を行います．</p>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col card m-1">
+            <div class="card-body">
+                <h5 class="card-title">拾得者（ユーザ）登録</h5>
+                <hr>
+                <p class="card-text">拾得物の登録を行う際に必要となるユーザの情報を登録するための機能です</p>
+                <a href="/reg_user" class="btn btn-success">登録する</a>
+            </div>
+        </div>
+        <div class="col card m-1">
+            <div class="card-body">
+                <h5 class="card-title">投稿画面</h5>
+                <hr>
+                <p class="card-text">落とし物の情報を投稿する</p>
+                <a href="/toukou" class="btn btn-success">登録する</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col card m-1">
+            <div class="card-body">
+                <h5 class="card-title">拾得物検索機能</h5>
+                <hr>
+                <p class="card-text">システムに登録されている拾得物のデータを対象として検索するための機能です</p>
+                <a href="/item_list" class="btn btn-success">検索する</a>
+            </div>
+        </div>
+        <div class="col card m-1">
+            <div class="card-body">
+                <h5 class="card-title">申請画面</h5>
+                <hr>
+                <p class="card-text">落とし物の申請をする</p>
+                <a href="/sinsei" class="btn btn-success">申請画面</a>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+{% endblock %}
