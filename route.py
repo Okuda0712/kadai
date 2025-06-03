@@ -44,6 +44,14 @@ def create_route(app):
         html = """依頼ページです"""
         return html
     
+    @app.route("/sinsei")
+    def index6():
+        return controller.sinsei()
+
+    @app.route("/toukou")
+    def index7():
+        return controller.toukou()
+    
 
     
     @app.route("/json", methods=["GET","POST"])
