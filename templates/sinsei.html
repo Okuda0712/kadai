@@ -1,41 +1,57 @@
 {% extends "base.html" %}
 
+{% block title %}申請画面 - 拾得物管理システム{% endblock %}
+
 {% block content %}
-<main class="bg-info py-5" style="min-height: 100vh;">
-<div class="container">
-    <div class="row">
-        <div class="col p-5 text-white rounded mt-3 bg-success">
-            <h1 class="display-4 fst-italic">申請画面</h1>
-            <hr>
-            <p>この申請画面では落とし物の情報を入力して申請をする画面です</p>
+<main class="bg-light py-5" style="min-height: 100vh;">
+    <div class="container">
+        {# ページ説明セクション #}
+        <div class="row">
+            <div class="col p-5 text-white rounded mt-3 bg-success">
+                <h1 class="display-4 fst-italic">申請画面</h1>
+                <hr>
+                <p>この画面では落とし物の情報を入力して申請を行います</p>
+            </div>
+        </div>
+
+        {# ホームへ戻るボタン #}
+        <div class="mt-4">
+            <a href="/" style="text-decoration: none;">
+                <i class="bi bi-arrow-left-circle-fill" style="font-size: 48px; color: #0d6efd;"></i>
+            </a>
+        </div>
+
+        {# 申請フォームコンテナ #}
+        <div class="container p-4 rounded mt-4" style="background-color: #ffffff; max-width: 500px;">
+            <h3 class="mb-4 text-center">遺失物情報入力</h3>
+            <form>
+                {# 名称入力フィールド #}
+                <div class="mb-3 d-flex align-items-center">
+                    <label class="form-label me-2" style="min-width: 80px;">名称：</label>
+                    <input type="text" class="form-control">
+                </div>
+                {# 遺失時間入力フィールド #}
+                <div class="mb-3 d-flex align-items-center">
+                    <label class="form-label me-2" style="min-width: 80px;">遺失時間：</label>
+                    <input type="datetime-local" class="form-control">
+                </div>
+                {# 遺失場所入力フィールド #}
+                <div class="mb-3 d-flex align-items-center">
+                    <label class="form-label me-2" style="min-width: 80px;">遺失場所：</label>
+                    <input type="text" class="form-control">
+                </div>
+                {# 特徴入力フィールド #}
+                <div class="mb-3 d-flex align-items-center">
+                    <label class="form-label me-2" style="min-width: 80px;">特徴：</label>
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+                
+                {# 申請ボタン #}
+                <div class="text-end mt-4">
+                    <button type="submit" class="btn btn-success">申請</button>
+                </div>
+            </form>
         </div>
     </div>
-<a href="/" style="text-decoration: none;">
-  <i class="bi bi-arrow-left-circle-fill" style="font-size: 48px; color: #0d6efd;"></i>
-</a>
-<div class="container p-4 rounded mt-4" style="background-color: #f1f1f1; width: 450px;">
-    <form>
-      <div class="mb-3 d-flex">
-       <label class="form-label me-2" style="width: 80px;">名称：</label>
-       <input type="text" class="form-control" style="width: 300px; height: 40px;">
-      </div>
-     <div class="mb-3 d-flex">
-      <label class="form-label me-2" style="width: 80px;">遺失時間：</label>
-      <input type="text" class="form-control" style="width: 300px; height: 40px;">
-     </div>
-     <div class="mb-3 d-flex">
-      <label class="form-label me-2" style="width: 80px;">遺失場所：</label>
-      <input type="text" class="form-control" style="width: 300px; height: 40px;">
-     </div>
-     <div class="mb-3 d-flex">
-      <label class="form-label me-2" style="width: 80px;">特徴：</label>
-      <input type="text" class="form-control" style="width: 300px; height: 40px;">
-     </div>
-     <div class="text-end">
-      <button type="submit" class="btn btn-success">送信</button>
-     </div>
-    </form>
-</div>
-</div>
 </main>
 {% endblock %}

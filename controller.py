@@ -14,6 +14,20 @@ def sinsei():
 def toukou():
     return render_template("toukou.html")
 
+def detail():
+    # 仮データ
+    item_data = {
+        'image_url': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiY11IQlEnzbQCDXahGAwXfvf1TlxyqGPhXZ22FZOGTA80qBtl2tmOj4eZfV8ffdT3jxJogA6hOsJZXeDxCBNPXtpPn5ikqEFY9mbyLztviM4bs26Aj8NRYPKLJUSN8wYq_45eryuuvbFEv/s1600/rain_kasa_black.png',
+        'name': '傘',
+        'found_location': '4401教室',
+        'current_location': '事務室'
+    }
+    # render_templateの引数として'item'にitem_dataを渡す
+    return render_template("detail.html", item=item_data)
+
+def login():
+    return render_template("login.html")
+
 def json(data):
     if data == "user":
         j = j_user()
