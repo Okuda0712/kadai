@@ -19,9 +19,9 @@
             <div class="col">
               <span id="ritems">検索結果：{{n}}件</span>
               <table class="table table-success table-striped">
-                <tr><th>大分類</th><th>物品名</th><th>拾得場所</th><th>色</th><th>特徴</th><th>日時</th><th>状態</th><th>操作</th></tr>
+                <tr><th>大分類</th><th>物品名</th><th>頭１</th><th>頭２</th><th>五十音</th><th>貴重品</th></tr>
                 {% for i in j %}
-                <tr><td>{{i.大分類}}</td><td>{{i.物品名}}</td><td>{{i.拾得場所}}</td><td>{{i.色}}</td><td></td><td>{{i.変更日時}}</td><td>{{i.変更内容}}</td><td><a href="/item_detail?id={{i.拾得物ID}}" class="btn btn-success">詳細</a></td></tr>
+                <tr><td>{{i.大分類}}</td><td>{{i.物品名}}</td><td>{{i.頭1}}</td><td>{{i.頭2}}</td><td></td><td>{{i.五十音}}</td><td>{{ "はい" if i.貴重品 else "いいえ"}}</td><td><a href="/item_detail?id={{i.拾得物ID}}" class="btn btn-success">詳細</a></td></tr>
                 {% endfor %}
             </table>
         </div>
