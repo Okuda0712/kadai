@@ -32,7 +32,6 @@ class 拾得物(db.Model):
     拾得場所 = db.Column(db.String(100))
     色 = db.Column(db.String(50))
     特徴 = db.Column(db.String(100))
-    習得時間 = db.Column(db.DateTime)
     画像 = db.Column(db.String(100))
 class 拾得物分類(db.Model):
     __tablename__ = "拾得物分類"
@@ -43,13 +42,5 @@ class 拾得物分類(db.Model):
     頭2 = db.Column(db.String(50))
     五十音 = db.Column(db.String(50))
     貴重品 = db.Column(db.Boolean)
-class 拾得物管理状況(db.Model):
-    __tablename__ = "拾得物管理状況"
-    ID = db.Column(db.Integer, primary_key = True)
-    ユーザID = db.Column(db.Integer)
-    拾得物ID = db.Column(db.Integer)
-    変更日時 = db.Column(db.DateTime)
-    変更内容 = db.Column(db.String(100))
-    返却日 = db.Column(db.DateTime)
 
 #多分ok
