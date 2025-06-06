@@ -18,7 +18,13 @@
                 <tr><th>拾得場所</th><td>{{ d.拾得場所 }}</td></tr>
                 <tr><th>色</th><td>{{ d.色 }}</td></tr>
                 <tr><th>特徴</th><td>{{ d.特徴 }}</td></tr>
+                <tr><th>画像</th>
                     <td>
+                        {% if d.画像 %}
+                            <img src="{{ url_for('static', filename='img/' ~ d.画像) }}" alt="拾得物画像" class="img-fluid" style="max-height: 150px;">
+                        {% else %}
+                            なし
+                        {% endif %}
                     </td>
                 </tr>
             </table>
