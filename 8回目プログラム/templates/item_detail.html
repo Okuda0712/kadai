@@ -1,1 +1,49 @@
-このファイルの中身を作ってみましょう
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container mt-4">
+    <h2 class="bg-success text-white text-center p-2 rounded">拾得物詳細</h2>
+
+    <p class="mt-3">
+        拾得物詳細画面では、一覧画面で選択した行の拾得物について、詳細情報の表示と履歴の確認が可能です。
+        管理状況の変更を行う場合は、対応者と状態を入力し、変更を反映してください。
+        一覧に戻る場合は「戻る」を選択してください。
+    </p>
+
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <table class="table table-bordered table-success">
+                <tr><th>大分類</th><td>{{ d.大分類 }}</td></tr>
+                <tr><th>物品名</th><td>{{ d.物品名 }}</td></tr>
+                <tr><th>拾得場所</th><td>{{ d.拾得場所 }}</td></tr>
+                <tr><th>色</th><td>{{ d.色 }}</td></tr>
+                <tr><th>特徴</th><td>{{ d.特徴 }}</td></tr>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-6">
+            <table class="table table-bordered table-light">
+                <thead class="table-secondary">
+                    <tr><th>日時</th><th>状態</th><th>対応者</th></tr>
+                </thead>
+                <tbody>
+                    {% for item in d.変更履歴 %}
+                    <tr>
+                        <td>{{ item.変更日時.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                        <td>{{ item.変更内容 }}</td>
+                        <td>{{ item.氏名 }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-3 text-center">
+        <a href="/item_list" class="btn btn-secondary">戻る</a>
+    </div>
+</main>
+{% endblock %}
