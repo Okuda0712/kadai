@@ -31,6 +31,8 @@ class 拾得物(db.Model):
     拾得場所 = db.Column(db.String(100))
     特徴 = db.Column(db.String(100))
     拾得時間 = db.Column(db.DateTime)
+    色 = db.Column(db.String(50))
+    物品名 = db.Column(db.String(255))
 class 拾得物分類(db.Model):
     __tablename__ = "拾得物分類"
     ID = db.Column(db.Integer, primary_key = True)
