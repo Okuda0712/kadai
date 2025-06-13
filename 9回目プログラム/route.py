@@ -64,13 +64,14 @@ def create_route(app):
             return redirect("/reg_item")
         return controller.item_form()
 
-    @app.route("/req_item")
+    @app.route("/req_item", methods=["GET", "POST"])
     def req_item():
         return controller.req_item()
 
     @app.route("/req_list")
     def req_list():
         return controller.req_list()
+
 
     @app.route("/dl")
     def dl():
